@@ -1,22 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Userlist() {
   const [userData, setUserData] = useState([]);
+  const [message, setMessage] = useState("");
   useEffect(() => {
-    const getUserData = async () => {
-      const reqData = await fetch("http://localhost/reactphpcrud/api/user.php");
-      const resData = await reqData.json();
-      console.log(resData);
-      setUserData(resData);
-    };
     getUserData();
   }, []);
+  const getUserData = async () => {
+    const reqData = await fetch("http://localhost/reactphpcrud/api/user.php");
+    const resData = await reqData.json();
+    // console.log(resData);
+    setUserData(resData);
+  };
+  const handleDelete = async (std_id) => {
+    const res = await axios.delete(
+      "http://localhost/reactphpcrud/api/user.php/" + std_id
+    );
+    setMessage(res.data.success);
+    getUserData();
+  };
+
   return (
     <React.Fragment>
       <div className="container text-start">
         <div className="row">
           <div className="col-md-6">
+            <p className="text-danger">{message}</p>
             <h5>Userlist</h5>
 
             <table className="table table-bordered">
@@ -45,9 +56,12 @@ function Userlist() {
                       >
                         Edit
                       </Link>
-                      <Link to="/edituser" className="btn btn-danger">
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => handleDelete(uData.std_id)}
+                      >
                         Delete
-                      </Link>
+                      </button>
                     </td>
                   </tr>
                 ))}

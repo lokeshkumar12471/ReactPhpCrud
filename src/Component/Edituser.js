@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 function Edituser() {
   const navigate = useNavigate();
   const { std_id } = useParams();
-  console.log(std_id);
+  // console.log(std_id);
   const [formvalue, setFormvalue] = useState({
     student_name: "",
     student_email: "",
