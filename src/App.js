@@ -5,6 +5,8 @@ import Home from "./Component/Home";
 import Userlist from "./Component/Userlist";
 import Footer from "./Component/Footer";
 import { Route, Routes } from "react-router-dom";
+import Adduser from "./Component/Adduser";
+import Edituser from "./Component/Edituser";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/userlist" element={<Userlist />} />
+        <Route path="/adduser" element={<Adduser />} />
+        <Route path="/edituser/:std_id" element={<Edituser />} />
       </Routes>
       <Footer />
     </div>

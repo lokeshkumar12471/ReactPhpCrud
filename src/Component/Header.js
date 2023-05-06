@@ -1,14 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand-lg bg-warning">
         <div className="container">
-          <Link to="/" className="navbar-brand">
+          <NavLink to="/" className="navbar-brand">
             Web Developer
-          </Link>
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -23,14 +23,19 @@ function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link to="/" className="nav-link" aria-current="page">
+                <NavLink to="/" className="nav-link" aria-current="page">
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link to="/userlist" className="nav-link">
+                <NavLink to="/userlist" className="nav-link">
                   User List
-                </Link>
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/adduser" className="nav-link">
+                  Add Users
+                </NavLink>
               </li>
             </ul>
             <form className="d-flex" role="search">
