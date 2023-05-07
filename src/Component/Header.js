@@ -37,6 +37,16 @@ function Header() {
                   Add Users
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink to="/productlist" className="nav-link">
+                  Product List
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/addproduct" className="nav-link">
+                  Add Product
+                </NavLink>
+              </li>
             </ul>
             <form className="d-flex" role="search">
               <input
